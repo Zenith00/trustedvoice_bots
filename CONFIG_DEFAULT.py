@@ -1,12 +1,3 @@
-BOT_TOKEN = ""
-PREFIX = "!"
-LOGGING_LEVEL = "INFO"
-ACK_TYPE = "react"
-ROLE_BY_CONFIG = True
-PRESERVE_IMAGES = True
-GUILD_ID = 534907871339741194
-IMAGE_TARGET_CHANNEL = 0
-
 ROLE_TO_ID = {"SR_Shrubbery_Hiraeth"       : 533038573792919553,
               "SR_Shrubbery_Grey"          : 533028882035769374,
               "SRSuzuya𝖚𝖓𝖙𝖎𝖙𝖑𝖊𝖉"             : 532990712325865492,
@@ -92,5 +83,17 @@ CHANNEL_BLACKLIST_NAMES = [
 ]
 
 CHANNEL_BLACKLIST_IDS = [CHANNEL_TO_ID[name] for name in CHANNEL_BLACKLIST_NAMES]
-
 ciID_TO_ROLE = ciROLE_TO_ID = ID_TO_ROLE = {}
+GUILD_ID = 534907871339741194
+
+PREFIX = "!"
+BOT_TOKEN = ""
+LOGGING_LEVEL = "INFO"
+
+IMAGE_TARGET_CHANNEL = CHANNEL_TO_ID["channelname"]
+
+ACK_TYPE = "react"
+
+ROLE_BY_CONFIG = True
+PRESERVE_IMAGES = True
+
