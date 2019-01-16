@@ -21,14 +21,14 @@ trackers = collections.defaultdict(dict)
 async def on_message(message_in):
     if message_in.author == client.user:
         return
-    if (message_in.channel in CONFIG.CHANNEL_WHITELIST or message_in.channel.name.startswith("sr_")) and message_in.attachments:
+    if message_in.channel.id not in CONFIG.CHANNEL_BLACKLIST_IDS and message_in.attachments:
         await copy_attachments(message_in)
     return
 
 @client.event
 async def on_reaction_add(reaction : discord.Reaction, user : discord.User):
     if reaction.message.channel.id == CONFIG.IMAGE_TARGET_CHANNEL:
-        if reaction.count > 1 and reaction.emoji == "❌" :
+        if reaction.count > 1 and reaction.emoji == "❌":
             await reaction.message.delete()
     pass
 
