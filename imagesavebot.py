@@ -21,7 +21,7 @@ trackers = collections.defaultdict(dict)
 async def on_message(message_in):
     if message_in.author == client.user:
         return
-    if message_in.attachments:
+    if (message_in.channel in CONFIG.CHANNEL_WHITELIST or message_in.channel.name.startswith("sr_")) and message_in.attachments:
         await copy_attachments(message_in)
     return
 
