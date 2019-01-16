@@ -1,4 +1,8 @@
-import CONFIG
+try:
+    import CONFIG
+except ImportError:
+    raise ImportError("Copy CONFIG_DEFAULT.py to CONFIG.py, editing CONFIG.py for any configuration changes")
+
 
 import logging
 from lux.contexter import Contexter
