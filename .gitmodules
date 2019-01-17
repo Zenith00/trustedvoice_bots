@@ -1,0 +1,3 @@
+[submodule "lux"]
+	path = lux
+	url = git@github.com:Zenith00/lux.git
