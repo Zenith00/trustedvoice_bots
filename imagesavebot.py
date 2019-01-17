@@ -1,11 +1,11 @@
+import collections
 import logging
-import discord
-import lux
-from PIL import Image
-import requests
 from io import BytesIO
 
-import collections
+import discord
+import requests
+
+import lux
 
 try:
     import CONFIG
