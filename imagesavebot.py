@@ -8,10 +8,9 @@ import requests
 import lux
 
 try:
-    import CONFIG
+    from CONFIG import IMGBOT as CONFIG
 except ImportError:
     raise ImportError("Copy CONFIG_DEFAULT.py to CONFIG.py, editing CONFIG.py for any configuration changes")
-
 
 
 logging.basicConfig(level=logging.INFO)
@@ -26,20 +25,20 @@ trackers = collections.defaultdict(dict)
 async def on_message(message_in):
     if message_in.author == client.user:
         return
-    if message_in.channel.id not in CONFIG.CHANNEL_BLACKLIST_IDS and message_in.attachments:
+    if message_in.channel.id not in CONFIG["CHANNEL_BLACKLIST_IDS"] and message_in.attachments:
         await copy_attachments(message_in)
     return
 
 @client.event
 async def on_reaction_add(reaction : discord.Reaction, user : discord.User):
-    if reaction.message.channel.id == CONFIG.IMAGE_TARGET_CHANNEL:
+    if reaction.message.channel.id == CONFIG["IMAGE_TARGET_CHANNEL"]:
         if reaction.count > 1 and reaction.emoji == "❌":
             await reaction.message.delete()
     pass
 
 
 async def copy_attachments(message: discord.Message):
-    if not CONFIG.PRESERVE_IMAGES:
+    if not CONFIG["PRESERVE_IMAGES"]:
         return
     files = []
     for counter, attachment in enumerate(message.attachments):
@@ -57,4 +56,4 @@ async def copy_attachments(message: discord.Message):
     await message.add_reaction("❌")
 
 
-client.run(CONFIG.BOT_TOKEN, bot=True)
+client.run(CONFIG["BOT_TOKEN"], bot=True)
