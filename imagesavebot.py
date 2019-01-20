@@ -13,7 +13,7 @@ except ImportError:
     raise ImportError("Copy CONFIG_DEFAULT.py to CONFIG.py, editing CONFIG.py for any configuration changes")
 
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=CONFIG["LOGGING_LEVEL"])
 
 client = lux.client.Lux(CONFIG)
 
