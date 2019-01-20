@@ -8,9 +8,9 @@ import requests
 import lux
 
 try:
-    from CONFIG import IMGBOT as CONFIG
+    from TOKENS import IMGBOT as CONFIG
 except ImportError:
-    raise ImportError("Copy CONFIG_DEFAULT.py to CONFIG.py, editing CONFIG.py for any configuration changes")
+    raise ImportError("Copy CONFIG_DEFAULT.py to TOKENS.py, editing TOKENS.py for any configuration changes")
 
 
 logging.basicConfig(level=CONFIG["LOGGING_LEVEL"])

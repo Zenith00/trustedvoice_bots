@@ -1,22 +1,17 @@
-try:
-    from CONFIG import ROLEBOT as CONFIG
-except ImportError:
-    raise ImportError("Copy CONFIG_DEFAULT.py to CONFIG.py, editing CONFIG.py for any configuration changes")
-
 import discord
 import logging
 from lux.contexter import Contexter
-from lux.client import Lux
-logging.basicConfig(level=CONFIG["LOGGING_LEVEL"])
+import lux
+CONFIG = lux.config.Config(botname="ROLEBOT").load()
 
-CONFIG["ID_TO_ROLE"] = dict([(v, k) for k, v in CONFIG["ROLE_TO_ID"].items()])
-CONFIG["ciID_TO_ROLE"] = dict([(v, k.lower()) for k, v in CONFIG["ROLE_TO_ID"].items()])
-CONFIG["ciROLE_TO_ID"] = dict([(k.lower(), v) for k, v in CONFIG["ROLE_TO_ID"].items()])
+logging.basicConfig(level=CONFIG["LOGGING_LEVEL"])
 
 def auth_func(ctx):
     return True
 
-client = Lux(CONFIG, auth_function=auth_func)
+
+client = lux.client.Lux(CONFIG, auth_function=auth_func)
+CONFIG = lux.config.Config(botname="PINBOT").load()
 
 # Offering
 @client.command(ack=CONFIG["ACK_TYPE"])
