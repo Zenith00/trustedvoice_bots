@@ -1,0 +1,2 @@
+ROLEBOT = ""
+IMGBOT = ""

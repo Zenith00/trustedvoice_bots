@@ -50,4 +50,4 @@ async def on_member_join(member : discord.Member):
     await member.add_roles(member.guild.get_role(CONFIG["ROLE_TO_ID"]["Member"]))
 
 
-client.run(CONFIG["BOT_TOKEN"], bot=True)
+client.run(CONFIG.TOKEN, bot=True)

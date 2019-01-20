@@ -1,17 +1,13 @@
 import collections
 import logging
 from io import BytesIO
-
 import discord
 import requests
-
 import lux
 
-try:
-    from TOKENS import IMGBOT as CONFIG
-except ImportError:
-    raise ImportError("Copy CONFIG_DEFAULT.py to TOKENS.py, editing TOKENS.py for any configuration changes")
+BOT_NAME = "IMGBOT"
 
+CONFIG = lux.config.Config(botname=BOT_NAME).load()
 
 logging.basicConfig(level=CONFIG["LOGGING_LEVEL"])
 
@@ -56,4 +52,4 @@ async def copy_attachments(message: discord.Message):
     await message.add_reaction("❌")
 
 
-client.run(CONFIG["BOT_TOKEN"], bot=True)
+client.run(CONFIG.TOKEN, bot=True)
