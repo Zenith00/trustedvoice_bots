@@ -1,4 +1,4 @@
 [submodule "lux"]
 	path = lux
-	url = https://github.com:Zenith00/lux.git
+	url = https://github.com/Zenith00/lux.git
     branch = master
