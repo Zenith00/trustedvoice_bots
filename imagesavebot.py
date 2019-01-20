@@ -50,7 +50,7 @@ async def copy_attachments(message: discord.Message):
             response = requests.get(attachment.url)
             files.append(discord.File(BytesIO(response.content), filename="image.png"))
 
-    message = await client.get_channel(534925638767738890).send(
+    message = await client.get_channel(CONFIG["IMAGE_TARGET_CHANNEL"]).send(
         f"Copying images from `UID: [{message.author.id}]` {message.author.mention} in `CID: [{message.channel.id}]` `({message.channel.name})` <#{message.channel.id}>, sourced from message `MID: [{message.id}]` {message.jump_url}",
         files=files)
     await message.add_reaction("❌")
