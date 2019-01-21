@@ -9,7 +9,7 @@ BOT_NAME = "IMGBOT"
 
 CONFIG = lux.config.Config(botname=BOT_NAME).load()
 
-logging.basicConfig(level=CONFIG["LOGGING_LEVEL"])
+logging.basicConfig(level=logging.INFO)
 
 client = lux.client.Lux(CONFIG)
 
