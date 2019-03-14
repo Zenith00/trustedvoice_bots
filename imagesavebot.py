@@ -56,7 +56,7 @@ async def copy_attachments(message: discord.Message):
             f"`CID: [{message.channel.id}]` `({message.channel.name})` <#{message.channel.id}>, "
             f"sourced from message `MID: [{message.id}]` {message.jump_url} "
             f"{str(index) + '/' + str(len(files)) if len(files) > 1 else ''}",
-            files=file)
+            files=[file])
     await message.add_reaction("❌")
 
 client.run(CONFIG.TOKEN, bot=True)
