@@ -47,7 +47,7 @@ async def delooking(ctx):
 
 @client.event
 async def on_member_join(member : discord.Member):
-    await member.add_roles(member.guild.get_role(CONFIG["ROLE_TO_ID"]["Member"]))
+    await member.add_roles(member.guild.get_role(Contexter(CONFIG).find_role("member")))
 
 
 client.run(CONFIG.TOKEN, bot=True)
