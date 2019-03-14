@@ -1,9 +1,17 @@
+CONFIG_DEFAULT = {"PRESERVE_IMAGES": True,
+          "IMAGE_TARGET_CHANNEL": 361662909220388876,
+          "LOGGING_LEVEL" : "INFO"}
+
 import collections
 import logging
 from io import BytesIO
 import discord
 import requests
 import lux
+
+
+
+
 
 BOT_NAME = "IMGBOT"
 
@@ -50,6 +58,7 @@ async def copy_attachments(message: discord.Message):
         f"Copying images from `UID: [{message.author.id}]` {message.author.mention} in `CID: [{message.channel.id}]` `({message.channel.name})` <#{message.channel.id}>, sourced from message `MID: [{message.id}]` {message.jump_url}",
         files=files)
     await message.add_reaction("❌")
+
 
 
 client.run(CONFIG.TOKEN, bot=True)
