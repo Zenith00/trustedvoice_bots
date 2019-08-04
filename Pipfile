@@ -6,9 +6,6 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-discord-py = {extras = ["voice"],git = "https://github.com/Rapptz/discord.py",ref = "rewrite"}
+discord-py = "*"
 requests = "*"
 pillow = "*"
-
-[requires]
-python_version = "3.6"
